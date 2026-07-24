@@ -1,5 +1,5 @@
 # ADSO 3410390
-![src/img/foto_frontend.png]()
+![my picture](src/imgs/foto_frontend.webp)
 ## Jeronimo Medina
 ### Analisis y Desarrollo de software
 ** Centro de procesos industriales y construccion **
