@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="mainmenu layout">
+<nav class="back"><a href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fff" viewBox="0 0 256 256"><path d="M240,208H224V136l2.34,2.34A8,8,0,0,0,237.66,127L139.31,28.68a16,16,0,0,0-22.62,0L18.34,127a8,8,0,0,0,11.32,11.31L32,136v72H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM48,120l80-80,80,80v88H160V152a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v56H48Zm96,88H112V160h32Z"></path></svg></a></nav>
+
+    <div id="background-animation"></div>
+
+    <main>
+        <header>
+            <h1>Layout</h1>
+
+            <h4>
+                Designing the visual layout, then translating everything into clean code
+            </h4>
+
+            <img src="imgs/layout-logo.webp" alt="la_imagen_no_se_pudo_cargar">
+        </header>
+
+        <menu>
+
+            <a href="Wireframe-Lo-Fi/index.html">
+                <span>
+                    01
+                </span>
+
+                <aside>
+                    <h3>writeframe-Lo-Fi</h3>
+                    <small>Define structure and flow</small>
+                </aside>
+            </a>
+
+            <a href="Wireframe-Hi-Ti/index.html">
+                <span>
+                    02
+                </span>
+
+                <aside>
+                    <h3>Wireframe-Hi-Fi</h3>
+                    <small>Refine structure and flow</small>
+                </aside>
+            </a>
+
+            <a href="style-guide/index.html">
+                <span>
+                    03
+                </span>
+
+                <aside>
+                    <h3>style-guide</h3>
+                    <small>Establish visual design rule</small>
+                </aside>
+            </a>
+
+            <a href="Mockup/index.html">
+                <span>
+                    04
+                </span>
+
+                <aside>
+                    <h3>Mockup</h3>
+                    <small>Visualize the final interface</small>
+                </aside>
+            </a>
+
+            <a href="Layort/index.html">
+                <span>
+                    05
+                </span>
+
+                <aside>
+                    <h3>Layort</h3>
+                    <small>Description</small>
+                </aside>
+            </a>
+
+        </menu>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+    <script>
+        const animation = lottie.loadAnimation({
+            container: document.getElementById('background-animation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'imgs/Animated dark abstract background.json'
+        });
+
+        animation.addEventListener('DOMLoaded', function () {
+            const svg = document.querySelector('#background-animation svg');
+
+            if (svg) {
+                svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
