@@ -27,7 +27,7 @@ body {
 
     nav.back {
         align-items: center;
-        border: 2px solid #fff;
+        
         border-radius: 50%;
         display: flex;
         justify-content: center;
@@ -36,7 +36,7 @@ body {
         opacity: .6;
         padding: 0.4rem;
         position: fixed;
-        top: 8px;
+        top: 28px;
         transform: scale(.8);
         transition: all 0.4s ease-in;
         width: 40px;
