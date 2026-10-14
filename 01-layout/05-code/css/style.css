@@ -1,0 +1,145 @@
+/*FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/*VARIABLES*/
+:root {
+    --color-primary: #e8d8c3;
+    --color-second: #ebae86;
+    --color-thr: black;
+    scroll-behavior: smooth;
+    --font-headings: "Bebas Neue", serif;
+    --font-body: inter, sans-serif;
+}
+
+body {
+    color: var(--color-thr);
+    background-color: var(--color-primary);
+    font-family: var(--font-body);
+
+    main {
+        min-height: 100dvh;
+
+        section#about {
+            height: 750px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3rem 2rem;
+            box-sizing: border-box;
+            background-image: url('../img/BAR.png');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+
+            /* Contenedor central: Logo al centro y texto al lado derecho */
+            .about-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                max-width: 1200px;
+                position: relative;
+                margin: auto 0;
+
+                .about-logo {
+                    height: 280px;
+                    width: auto;
+                }
+
+                .about-text {
+                    width: 340px;
+                    /* Estilo vidrioso (Glassmorphism) */
+                    background: rgba(10, 20, 35, 0.55);
+                    border: 1px solid rgba(255, 255, 255, 0.25);
+                    backdrop-filter: blur(8px);
+                    -webkit-backdrop-filter: blur(8px);
+                    padding: 1.5rem;
+                    color: white;
+                    border-radius: 6px;
+                    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+                    margin-top: -8rem;
+
+                    p {
+                        margin: 0;
+                        font-size: 0.95rem;
+                        line-height: 1.5;
+                    }
+                }
+            }
+
+            /* Botones inferiores con estilo de cristal */
+            .about-buttons {
+                display: flex;
+                gap: 2rem;
+                margin-bottom: 1.5rem;
+
+                .btn {
+                    /* Estilo vidrioso para los botones */
+                    background: rgba(20, 20, 25, 0.45);
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    backdrop-filter: blur(6px);
+                    -webkit-backdrop-filter: blur(6px);
+                    color: white;
+                    padding: 0.8rem 2.5rem;
+                    font-size: 1.2rem;
+                    font-family: var(--font-headings);
+                    letter-spacing: 1px;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    border-radius: 4px;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.25);
+                        border-color: white;
+                        transform: translateY(-3px);
+                    }
+                }
+            }
+        }
+
+        header#navbar {
+            background-color: pink;
+            border-bottom: 1px solid var(--color-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+            padding-inline: 0.5rem;
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+
+            img.logo {
+                height: 100px;
+            }
+
+            nav.options {
+                display: flex;
+                gap: 2rem;
+
+                a:is(:link, :visited) {
+                    font-size: 1.4rem;
+                    text-decoration: none;
+                    color: var(--color-thr);
+                    transition: transform 0.4s ease-in;
+
+                    &:not(.active):hover {
+                        transform: translateY(-6px);
+                    }
+
+                    &.active {
+                        color: white;
+                        border-bottom: 2px solid var(--color-thr);
+                    }
+                }
+            }
+        }
+    }
+}
