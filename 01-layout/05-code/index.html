@@ -1,39 +1,292 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111827">
+
     <title>Campeonato_De_Fortnite</title>
+
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
     <main>
         <header id="navbar">
-            <img class="logo" src="img/logo_fortnite-removebg-preview 1.png" alt="logo">
-            <nav class="options">
-                <a class="active" href="">ABOUT</a>
-                <a href="">COMPETIDORES</a>
-                <a href="">SEDE</a>
-                <a href="">PATROCINADORES</a>
+            <img
+                class="logo"
+                src="img/logo_fortnite-removebg-preview 1.png"
+                alt="Logo del campeonato"
+            >
+
+            <nav class="options" aria-label="Navegación principal">
+                <a href="#about" class="nav-link active">ABOUT</a>
+                <a href="#competidores" class="nav-link">COMPETIDORES</a>
+                <a href="#sede" class="nav-link">SEDE</a>
+                <a href="#patrocinadores" class="nav-link">PATROCINADORES</a>
             </nav>
         </header>
+
+        <!-- ABOUT -->
 
         <section id="about">
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                        Suspendisse ut euismod nisl, fermentum pulvinar nulla. Vivamus consectetur pharetra sem vel gravida. Nulla tincidunt tincidunt consequat. Ut dui mi, finibus at ullamcorper non, molestie at mi.
+                        Suspendisse ut euismod nisl, fermentum pulvinar nulla.
+                        Vivamus consectetur pharetra sem vel gravida.
+                        Nulla tincidunt tincidunt consequat. Ut dui mi,
+                        finibus at ullamcorper non, molestie at mi.
                     </p>
                 </div>
+
                 <div class="center-box">
-                    <img class="logo full" src="img/logo_fortnite-removebg-preview 1.png" alt="logo">
-                    <menu>
-                        <a href="JavaScript">Inscribete YA!</a>
-                        <a href="JavaScript">VER EN VIVO</a>
-                    </menu>
+                    <img
+                        class="logo full"
+                        src="img/logo_fortnite-removebg-preview 1.png"
+                        alt="Logo del Campeonato Fortnite"
+                    >
+                </div>
+            </div>
+
+            <div class="about-buttons">
+                <a class="btn" href="#">INSCRÍBETE YA!</a>
+                <a class="btn" href="#">VER EN VIVO</a>
+            </div>
+        </section>
+
+        <!-- COMPETIDORES -->
+
+        <section id="competidores">
+            <div class="title-badge">
+                <h2>COMPETIDORES</h2>
+            </div>
+
+            <div class="cards-container">
+                <figure class="card">
+                    <img
+                        class="flag-icon"
+                        src="img/competidores/banderas/japon.webp"
+                        alt="Bandera de Japón"
+                    >
+
+                    <div class="avatar-container">
+                        <img
+                            class="avatar"
+                            src="img/competidores/Ellipse 1.png"
+                            alt="Competidor 1"
+                        >
+                    </div>
+
+                    <div class="card-header">
+                        <span class="competitor-name">NAME</span>
+                        <span class="heart active">♥</span>
+                    </div>
+
+                    <p class="card-description">
+                        Nunc posuere, lectus ut gravida imperdiet,
+                        nisi enim porta nulla, id dictum augue libero eget ris
+                    </p>
+                </figure>
+
+                <figure class="card">
+                    <img
+                        class="flag-icon"
+                        src="img/competidores/banderas/colombia.webp"
+                        alt="Bandera de Colombia"
+                    >
+
+                    <div class="avatar-container">
+                        <img
+                            class="avatar"
+                            src="img/competidores/Ellipse 2.png"
+                            alt="Competidor 2"
+                        >
+                    </div>
+
+                    <div class="card-header">
+                        <span class="competitor-name">NAME</span>
+                        <span class="heart">♡</span>
+                    </div>
+
+                    <p class="card-description">
+                        Nunc posuere, lectus ut gravida imperdiet,
+                        nisi enim porta nulla, id dictum augue libero eget ris
+                    </p>
+                </figure>
+
+                <figure class="card">
+                    <img
+                        class="flag-icon"
+                        src="img/competidores/banderas/reino_unido.webp"
+                        alt="Bandera del Reino Unido"
+                    >
+
+                    <div class="avatar-container">
+                        <img
+                            class="avatar"
+                            src="img/competidores/Ellipse 3.png"
+                            alt="Competidor 3"
+                        >
+                    </div>
+
+                    <div class="card-header">
+                        <span class="competitor-name">NAME</span>
+                        <span class="heart">♡</span>
+                    </div>
+
+                    <p class="card-description">
+                        Nunc posuere, lectus ut gravida imperdiet,
+                        nisi enim porta nulla, id dictum augue libero eget ris
+                    </p>
+                </figure>
+
+                <figure class="card">
+                    <img
+                        class="flag-icon"
+                        src="img/competidores/banderas/colombia.webp"
+                        alt="Bandera de Colombia"
+                    >
+
+                    <div class="avatar-container">
+                        <img
+                            class="avatar"
+                            src="img/competidores/Ellipse 4.png"
+                            alt="Competidor 4"
+                        >
+                    </div>
+
+                    <div class="card-header">
+                        <span class="competitor-name">NAME</span>
+                        <span class="heart">♡</span>
+                    </div>
+
+                    <p class="card-description">
+                        Nunc posuere, lectus ut gravida imperdiet,
+                        nisi enim porta nulla, id dictum augue libero eget ris
+                    </p>
+                </figure>
+            </div>
+        </section>
+
+        <!-- SEDE -->
+
+        <section id="sede">
+            <div class="title-badge">
+                <h2>SEDE Y UBICACION</h2>
+            </div>
+
+            <div class="sede-container">
+                <div class="sede-box map-box">
+                    <img
+                        src="img/sede/mapa.png"
+                        alt="Mapa de ubicación"
+                    >
+                </div>
+
+                <div class="sede-box info-box">
+                    <h3>INFO GENERAL Y DIRECCION</h3>
+
+                    <p>Crr 61-70 #85-01B</p>
+                    <p>Colombia - Manizales, Caldas</p>
+                    <p>Sede de Eventos Internacionales Colombianos</p>
+                    <p>FINAL INTERNACIONAL DE FORTNITE (FIF)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PATROCINADORES -->
+
+        <section id="patrocinadores">
+            <div class="title-badge">
+                <h2>PATROCINADORES</h2>
+            </div>
+
+            <div class="sponsors-grid">
+                <div class="sponsor-card">
+                    <img
+                        src="img/patrocinadores/qualcomm.png"
+                        alt="Snapdragon"
+                    >
+                </div>
+
+                <div class="sponsor-card">
+                    <img
+                        src="img/patrocinadores/sony.png"
+                        alt="Sony"
+                    >
+                </div>
+
+                <div class="sponsor-card">
+                    <img
+                        src="img/patrocinadores/redbull.png"
+                        alt="Red Bull"
+                    >
+                </div>
+
+                <div class="sponsor-card">
+                    <img
+                        src="img/patrocinadores/nvidia.png"
+                        alt="Nvidia"
+                    >
+                </div>
+
+                <div class="sponsor-card wide">
+                    <img
+                        src="img/patrocinadores/mercedez.png"
+                        alt="Mercedes AMG Petronas"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <!-- FORTNITE CUP -->
+
+        <section id="cup">
+            <div class="title-badge">
+                <h2>FORTNITE CUP</h2>
+            </div>
+
+            <div class="cup-container">
+                <div class="cup-left">
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <img
+                                src="img/footer/instagram-logo 1.png"
+                                alt="Instagram"
+                            >
+                        </a>
+
+                        <a href="#" class="social-icon" aria-label="X">
+                            <img
+                                src="img/footer/x-logo 1.png"
+                                alt="X"
+                            >
+                        </a>
+
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <img
+                                src="img/footer/facebook-logo 1.png"
+                                alt="Facebook"
+                            >
+                        </a>
+
+                        <a href="#" class="social-icon" aria-label="TikTok">
+                            <img
+                                src="img/footer/tiktok-logo 1.png"
+                                alt="TikTok"
+                            >
+                        </a>
+                    </div>
+
+                    <p class="copyright">
+                        &copy; 2026 Campeonato Fortnite.
+                        Todos los derechos reservados.
+                    </p>
                 </div>
             </div>
         </section>
