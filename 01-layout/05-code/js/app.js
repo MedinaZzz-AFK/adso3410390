@@ -1,12 +1,29 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     const navbar = document.querySelector("#navbar");
     const nav = navbar?.querySelector(".options");
     const themeColor = document.querySelector('meta[name="theme-color"]');
+    const burger = document.getElementById('burger');
 
     if (!navbar || !nav) return;
 
+    if (burger) {
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+    }
+
     const links = [...nav.querySelectorAll(".nav-link")];
+
+    links.forEach(link => {
+        link.addEventListener("click", () => {
+            moveIndicator(link);
+            if (burger && nav) {
+                burger.classList.remove('active');
+                nav.classList.remove('active');
+            }
+        });
+    });
 
     const sections = links
         .map(link => {
@@ -21,10 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const TABLET_BREAKPOINT = 1100;
     const carousels = [];
 
-    /* =====================================
-       COLOR DEL NAVBAR Y CHROME
-    ===================================== */
-
     function updateThemeColor() {
         if (!themeColor) return;
 
@@ -35,10 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 : "#111827"
         );
     }
-
-    /* =====================================
-       INDICADOR ANIMADO DEL NAVBAR
-    ===================================== */
 
     function moveIndicator(activeLink) {
         if (!activeLink) return;
@@ -103,12 +112,6 @@ document.addEventListener("DOMContentLoaded", () => {
         moveIndicator(activeLink || links[0]);
     }
 
-    links.forEach(link => {
-        link.addEventListener("click", () => {
-            moveIndicator(link);
-        });
-    });
-
     let ticking = false;
 
     window.addEventListener("scroll", () => {
@@ -121,10 +124,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ticking = false;
         });
     }, { passive: true });
-
-    /* =====================================
-       CARRUSELES PARA TABLETS Y CELULARES
-    ===================================== */
 
     function createCarousel(track, name) {
         if (!track || track.dataset.carouselReady === "true") return;
@@ -178,11 +177,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 track.scrollLeft >= maxScroll - 2;
         }
 
-        /*
-         * Avanza el ancho visible del carrusel.
-         * El scroll-snap del CSS ajusta la posición
-         * al comienzo de la tarjeta más cercana.
-         */
         function moveCarousel(direction) {
             if (window.innerWidth > TABLET_BREAKPOINT) return;
 
@@ -204,7 +198,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 Math.min(maxScroll, targetPosition)
             );
 
-            // Evitar intentar desplazarse fuera de los límites.
             if (Math.abs(targetPosition - currentPosition) < 2) {
                 updateButtons();
                 return;
@@ -237,7 +230,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }, { passive: true });
 
-        // También permite usar las flechas del teclado.
         track.setAttribute("tabindex", "0");
 
         track.addEventListener("keydown", event => {
@@ -256,12 +248,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         window.addEventListener("resize", updateButtons);
 
-        // Cambios de orientación y dimensiones del iPad.
         window.addEventListener("orientationchange", () => {
             window.setTimeout(updateButtons, 150);
         });
 
-        // Recalcular también cuando cambie el tamaño del carrusel.
         if ("ResizeObserver" in window) {
             const observer = new ResizeObserver(() => {
                 updateButtons();
@@ -273,7 +263,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         carousels.push({ track, updateButtons });
 
-        // Esperar a que el navegador calcule las dimensiones reales.
         window.requestAnimationFrame(() => {
             window.requestAnimationFrame(updateButtons);
         });
@@ -293,7 +282,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#patrocinadores .sponsors-grid"),
         "Carrusel de patrocinadores"
     );
-
 
     function refreshLayout() {
         updateNavbar();

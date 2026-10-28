@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
@@ -46,10 +45,6 @@ main {
     min-height: 100dvh;
     padding-top: 76px;
 }
-
-/* =========================================
-   NAVBAR FIJO
-========================================= */
 
 header#navbar {
     width: 100%;
@@ -176,12 +171,10 @@ header#navbar nav.options::after {
 
     border-radius: 10px;
 
-    background: linear-gradient(
-        90deg,
-        var(--nav-pink),
-        #ff85b3,
-        var(--nav-gold)
-    );
+    background: linear-gradient(90deg,
+            var(--nav-pink),
+            #ff85b3,
+            var(--nav-gold));
 
     box-shadow: 0 0 12px rgba(255, 77, 141, 0.55);
 
@@ -194,11 +187,65 @@ header#navbar nav.options::after {
     pointer-events: none;
 }
 
-/* =========================================
-   CARRUSELES RESPONSIVE
-   Las flechas se crean desde JavaScript.
-   En escritorio no se muestran.
-========================================= */
+button#burger {
+    position: relative;
+    width: 50px;
+    height: 44px;
+    background: none;
+    border: none;
+    appearance: none;
+    transform: scale(.8);
+    cursor: pointer;
+    display: none;
+    z-index: 1001;
+
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+
+    span {
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: #fff;
+        border-radius: 3px;
+
+        &:nth-of-type(1) {
+            top: 0;
+            left: 0;
+            transition: top .3s;
+        }
+
+        &:nth-of-type(2) {
+            top: 20px;
+            left: 0;
+            transition: opacity .3s;
+        }
+
+        &:nth-of-type(3) {
+            bottom: 0;
+            left: 0;
+            transition: bottom .3s;
+        }
+    }
+
+    &.active span:nth-of-type(1) {
+        top: 20px;
+        transform: rotate(-45deg);
+        transition: top .3s cubic-bezier(.36, -.42, .68, -.56), transform .3s .3s;
+    }
+
+    &.active span:nth-of-type(2) {
+        opacity: 0;
+        transition: opacity .05s .3s;
+    }
+
+    &.active span:nth-of-type(3) {
+        bottom: 20px;
+        transform: rotate(45deg);
+        transition: bottom .3s cubic-bezier(.36, -.42, .68, -.56), transform .3s .3s;
+    }
+}
 
 .carousel-shell {
     width: 100%;
@@ -209,10 +256,6 @@ header#navbar nav.options::after {
 .carousel-arrow {
     display: none;
 }
-
-/* =========================================
-   ABOUT
-========================================= */
 
 section#about {
     height: 750px;
@@ -324,10 +367,6 @@ section#about {
     transform: translateY(-3px);
 }
 
-/* =========================================
-   TÍTULOS
-========================================= */
-
 .title-badge {
     width: fit-content;
     max-width: 100%;
@@ -358,10 +397,6 @@ section#about {
     letter-spacing: 2px;
     font-weight: 400;
 }
-
-/* =========================================
-   COMPETIDORES
-========================================= */
 
 section#competidores {
     min-height: 750px;
@@ -501,10 +536,6 @@ section#competidores {
     overflow-wrap: anywhere;
 }
 
-/* =========================================
-   SEDE
-========================================= */
-
 section#sede {
     min-height: 750px;
 
@@ -611,10 +642,6 @@ section#sede {
     overflow-wrap: anywhere;
 }
 
-/* =========================================
-   PATROCINADORES
-========================================= */
-
 section#patrocinadores {
     min-height: 600px;
     background-color: #2b1433;
@@ -688,10 +715,6 @@ section#patrocinadores {
 
     object-fit: cover;
 }
-
-/* =========================================
-   FOOTER
-========================================= */
 
 section#cup {
     min-height: 600px;
@@ -785,28 +808,43 @@ section#cup .title-badge {
     overflow-wrap: anywhere;
 }
 
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
     header#navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
         padding: 0 20px;
         gap: 12px;
     }
 
-    header#navbar img.logo {
-        height: 48px;
+    button#burger {
+        display: flex;
     }
 
     header#navbar nav.options {
-        gap: 2px;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(17, 24, 39, 0.98);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 15px;
+        border-bottom: 2px solid rgba(255, 77, 141, 0.75);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
-    header#navbar nav.options a:is(:link, :visited) {
-        padding: 10px 9px;
-        font-size: 0.76rem;
-        letter-spacing: 0.025em;
+    header#navbar nav.options.active {
+        display: flex;
+    }
+
+    header#navbar img.logo {
+        height: 48px;
     }
 
     section#about {
@@ -849,10 +887,6 @@ section#cup .title-badge {
     }
 }
 
-/* =========================================
-   TABLET Y MÓVILES: CARRUSELES CON FLECHAS
-========================================= */
-
 @media (max-width: 768px) {
     html {
         scroll-padding-top: 100px;
@@ -876,19 +910,6 @@ section#cup .title-badge {
     header#navbar.scrolled img.logo {
         height: 38px;
     }
-
-    header#navbar nav.options {
-        gap: 1px;
-        padding: 5px 3px 9px;
-    }
-
-    header#navbar nav.options a:is(:link, :visited) {
-        padding: 9px 6px;
-        font-size: 0.67rem;
-        letter-spacing: 0;
-    }
-
-    /* Envoltura del carrusel con flechas a ambos lados */
 
     .carousel-shell {
         width: 100%;
@@ -946,8 +967,6 @@ section#cup .title-badge {
         outline-offset: 3px;
     }
 
-    /* Carrusel de competidores */
-
     .cards-container {
         display: flex;
         flex-wrap: nowrap;
@@ -986,8 +1005,6 @@ section#cup .title-badge {
         scroll-snap-align: start;
         scroll-snap-stop: always;
     }
-
-    /* Sede: alternar mapa e información */
 
     .sede-container {
         display: flex;
@@ -1028,8 +1045,6 @@ section#cup .title-badge {
         object-fit: contain;
     }
 
-    /* Carrusel de patrocinadores */
-
     .sponsors-grid {
         display: flex;
         flex-wrap: nowrap;
@@ -1066,8 +1081,6 @@ section#cup .title-badge {
         scroll-snap-stop: always;
     }
 
-    /* Títulos */
-
     .title-badge {
         max-width: 100%;
         padding: 0.6rem 1.5rem;
@@ -1078,8 +1091,6 @@ section#cup .title-badge {
     .title-badge h2 {
         font-size: 2.2rem;
     }
-
-    /* Sección de portada */
 
     section#about {
         height: 680px;
@@ -1117,10 +1128,6 @@ section#cup .title-badge {
     }
 }
 
-/* =========================================
-   CELULARES
-========================================= */
-
 @media (max-width: 600px) {
     html {
         scroll-padding-top: 100px;
@@ -1129,8 +1136,6 @@ section#cup .title-badge {
     main {
         padding-top: 88px;
     }
-
-    /* Navbar en dos filas */
 
     header#navbar {
         width: 100%;
@@ -1156,33 +1161,11 @@ section#cup .title-badge {
         height: 26px;
     }
 
-    header#navbar nav.options {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-
-        gap: 0;
-        padding: 3px 1px 8px;
-        margin: 0;
+    button#burger {
+        position: absolute;
+        right: 10px;
+        top: 20px;
     }
-
-    header#navbar nav.options a:is(:link, :visited) {
-        min-width: 0;
-        padding: 7px 4px;
-
-        font-size: clamp(0.50rem, 2vw, 0.65rem);
-        font-weight: 800;
-        letter-spacing: 0;
-        line-height: 1.2;
-
-        text-align: center;
-    }
-
-    /* Flechas más pequeñas */
 
     .carousel-shell {
         grid-template-columns: 30px minmax(0, 1fr) 30px;
@@ -1194,8 +1177,6 @@ section#cup .title-badge {
         height: 30px;
         font-size: 1.5rem;
     }
-
-    /* Mostrar un competidor a la vez */
 
     .cards-container .card {
         flex-basis: 100%;
@@ -1213,16 +1194,12 @@ section#cup .title-badge {
         line-height: 1.5;
     }
 
-    /* Mostrar un patrocinador a la vez */
-
     .sponsors-grid .sponsor-card,
     .sponsors-grid .sponsor-card.wide {
         flex-basis: 100%;
         width: 100%;
         height: 110px;
     }
-
-    /* Portada */
 
     section#about {
         height: auto;
@@ -1262,8 +1239,6 @@ section#cup .title-badge {
         text-align: center;
     }
 
-    /* Títulos */
-
     .title-badge {
         width: fit-content;
         max-width: 100%;
@@ -1280,8 +1255,6 @@ section#cup .title-badge {
         overflow-wrap: anywhere;
     }
 
-    /* Secciones */
-
     section#competidores,
     section#sede {
         min-height: 0;
@@ -1297,8 +1270,6 @@ section#cup .title-badge {
         min-height: 400px;
         padding: 2.5rem 1rem 1.5rem;
     }
-
-    /* Sede */
 
     .sede-box {
         min-height: 0;
@@ -1334,8 +1305,6 @@ section#cup .title-badge {
         line-height: 1.6;
     }
 
-    /* Footer */
-
     .cup-container {
         width: 100%;
         align-items: flex-end;
@@ -1362,20 +1331,10 @@ section#cup .title-badge {
     }
 }
 
-/* =========================================
-   CELULARES PEQUEÑOS
-========================================= */
-
 @media (max-width: 380px) {
     header#navbar {
         padding-left: 4px;
         padding-right: 4px;
-    }
-
-    header#navbar nav.options a:is(:link, :visited) {
-        padding: 7px 2px;
-        font-size: 0.49rem;
-        letter-spacing: -0.01em;
     }
 
     section#about {
@@ -1410,8 +1369,6 @@ section#cup .title-badge {
     }
 }
 
-
-
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
@@ -1426,13 +1383,7 @@ section#cup .title-badge {
     }
 }
 
-
-
-
 @media (min-width: 769px) and (max-width: 1100px) {
-
-    /* Contenedor de las flechas */
-
     .carousel-shell {
         display: grid;
         grid-template-columns: 42px minmax(0, 1fr) 42px;
@@ -1482,8 +1433,6 @@ section#cup .title-badge {
         cursor: default;
     }
 
-    /* Competidores */
-
     #competidores .cards-container {
         display: flex;
         flex-wrap: nowrap;
@@ -1523,8 +1472,6 @@ section#cup .title-badge {
         scroll-snap-stop: always;
     }
 
-    /* Sede: mapa e información */
-
     #sede .sede-container {
         display: flex;
         flex-wrap: nowrap;
@@ -1563,8 +1510,6 @@ section#cup .title-badge {
         scroll-snap-align: start;
         scroll-snap-stop: always;
     }
-
-    /* Patrocinadores */
 
     #patrocinadores .sponsors-grid {
         display: flex;
@@ -1607,4 +1552,3 @@ section#cup .title-badge {
         scroll-snap-stop: always;
     }
 }
-
